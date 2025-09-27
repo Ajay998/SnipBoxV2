@@ -45,3 +45,8 @@ class SnippetDetailSerializer(serializers.ModelSerializer):
         model = Snippet
         fields = ['id', 'title', 'note', 'created_at', 'updated_at', 'created_by', 'tags']
         read_only_fields = ['created_at', 'updated_at', 'created_by']
+
+class SnippetDeleteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Snippet
+        fields = ['id']
