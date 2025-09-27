@@ -18,3 +18,10 @@ class SnippetDetailView(generics.RetrieveAPIView):
     def get_queryset(self):
         user = self.request.user
         return Snippet.objects.filter(created_by=user)
+
+class SnippetUpdateAPI(generics.RetrieveUpdateAPIView):
+    serializer_class = SnippetSerializer
+    permission_classes = [permissions.IsAuthenticated]
+    def get_queryset(self):
+        user = self.request.user
+        return Snippet.objects.filter(created_by=user)
