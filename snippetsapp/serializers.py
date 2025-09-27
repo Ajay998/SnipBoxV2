@@ -11,6 +11,7 @@ class SnippetSerializer(serializers.ModelSerializer):
     tag_titles = serializers.ListField(
         child=serializers.CharField(), write_only=True, required=False
     )
+    created_by = serializers.ReadOnlyField(source='created_by.username')
 
     class Meta:
         model = Snippet
