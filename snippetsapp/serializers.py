@@ -25,6 +25,19 @@ class SnippetSerializer(serializers.ModelSerializer):
             tag_obj, _ = Tag.objects.get_or_create(title=normalized_title)
             snippet.tags.add(tag_obj)
         return snippet
+    
+    def update(self, snippet_instance, data):
+        tag_titles = data.pop('tag_titles', [])
+        snippet_instance.title = data.get('title', snippet_instance.title)
+        snippet_instance.note = data.get('note', snippet_instance.note)
+        snippet_instance.save()
+        if tag_titles:
+            snippet_instance.tags.clear()
+            for title in tag_titles:
+                normalized_title = title.strip().lower()
+                tag_obj, _ = Tag.objects.get_or_create(title=normalized_title)
+                snippet_instance.tags.add(tag_obj)
+        return snippet_instance
 
 class SnippetDetailSerializer(serializers.ModelSerializer):
     tags = TagSerializer(many=True, read_only=True)
