@@ -25,3 +25,10 @@ class SnippetSerializer(serializers.ModelSerializer):
             tag_obj, _ = Tag.objects.get_or_create(title=normalized_title)
             snippet.tags.add(tag_obj)
         return snippet
+
+class SnippetDetailSerializer(serializers.ModelSerializer):
+    tags = TagSerializer(many=True, read_only=True)
+    class Meta:
+        model = Snippet
+        fields = ['id', 'title', 'note', 'created_at', 'updated_at', 'created_by', 'tags']
+        read_only_fields = ['created_at', 'updated_at', 'created_by']

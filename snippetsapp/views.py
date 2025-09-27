@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Snippet
-from .serializers import SnippetSerializer
+from .serializers import SnippetSerializer, SnippetDetailSerializer
 from rest_framework import generics, permissions
 
 # Create your views here.
@@ -12,3 +12,9 @@ class SnippetCreateAPIView(generics.CreateAPIView):
     def perform_create(self, serializer):
         serializer.save(created_by=self.request.user)
 
+class SnippetDetailView(generics.RetrieveAPIView):
+    serializer_class = SnippetDetailSerializer
+    permission_classes = [permissions.IsAuthenticated]
+    def get_queryset(self):
+        user = self.request.user
+        return Snippet.objects.filter(created_by=user)
