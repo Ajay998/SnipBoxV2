@@ -41,4 +41,17 @@ class SnippetDeleteAPI(generics.RetrieveDestroyAPIView):
             serializer = SnippetSerializer(remaining_available_snippets, many=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
         return Response({"detail": "No snippets remaining."}, status=status.HTTP_204_NO_CONTENT)
+
+class OverviewAPI(generics.GenericAPIView):
+    permission_classes = [permissions.IsAuthenticated]
+    def get(self, request, *args, **kwargs):
+        total_snippets = Snippet.objects.filter(created_by=request.user)
+        return Response({
+            "total_snippets": total_snippets.count(),
+            "snippets_details": {"snippets": [{"id": s.id, "title": s.title, "detail_url": f"/api/snippets/{s.id}/"} for s in total_snippets]}
+        })
+
+
+
+
     
