@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import SnippetCreateAPIView, SnippetDetailView, SnippetUpdateAPI, SnippetDeleteAPI, OverviewAPI, TagListView
+from .views import SnippetCreateAPIView, SnippetDetailView, SnippetUpdateAPI, SnippetDeleteAPI, OverviewAPI, TagDetailView, TagListView
 
 app_name = 'snippetsapp'
 
@@ -10,5 +10,6 @@ urlpatterns = [
     path('snippets/<int:pk>/delete/', SnippetDeleteAPI.as_view(), name='snippet-delete'),
     path('snippets/overview/', OverviewAPI.as_view(), name='snippet-overview'),
     path('tags/', TagListView.as_view(), name='list-tags'),
+    path('tags/<int:pk>/', TagDetailView.as_view(), name='tag-detail')
 
 ]
