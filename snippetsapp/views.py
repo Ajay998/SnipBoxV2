@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Snippet
-from .serializers import SnippetSerializer, SnippetDetailSerializer, SnippetDeleteSerializer
+from .models import Snippet, Tag
+from .serializers import SnippetSerializer, SnippetDetailSerializer, SnippetDeleteSerializer, TagSerializer
 from rest_framework import generics, permissions, status
 from rest_framework.response import Response
 
@@ -51,6 +51,10 @@ class OverviewAPI(generics.GenericAPIView):
             "snippets_details": {"snippets": [{"id": s.id, "title": s.title, "detail_url": f"/api/snippets/{s.id}/"} for s in total_snippets]}
         })
 
+class TagListView(generics.ListAPIView):
+    serializer_class = TagSerializer
+    permission_classes = [permissions.IsAuthenticated]
+    queryset = Tag.objects.all()
 
 
 
