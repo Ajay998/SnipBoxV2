@@ -7,17 +7,21 @@ class TagSerializer(serializers.ModelSerializer):
         fields = ['id', 'title']
 
 class SnippetSerializer(serializers.ModelSerializer):
-    tags = TagSerializer(many=True, required=False)
+    tags = TagSerializer(many=True, read_only=True)
+    tag_titles = serializers.ListField(
+        child=serializers.CharField(), write_only=True, required=False
+    )
 
     class Meta:
         model = Snippet
-        fields = ['id', 'title', 'note', 'created_at', 'updated_at', 'created_by', 'tags']
+        fields = ['id', 'title', 'note', 'created_at', 'updated_at', 'created_by', 'tags', 'tag_titles']
         read_only_fields = ['created_at', 'updated_at', 'created_by']
 
     def create(self, data):
-        tags_data = data.pop('tags', [])
+        tag_titles = data.pop('tag_titles', [])
         snippet = Snippet.objects.create(**data)
-        for tag_data in tags_data:
-            tag, created = Tag.objects.get_or_create(title=tag_data['title'])
-            snippet.tags.add(tag)
+        for title in tag_titles:
+            normalized_title = title.strip().lower()
+            tag_obj, _ = Tag.objects.get_or_create(title=normalized_title)
+            snippet.tags.add(tag_obj)
         return snippet
