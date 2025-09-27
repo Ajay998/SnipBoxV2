@@ -56,6 +56,21 @@ class TagListView(generics.ListAPIView):
     permission_classes = [permissions.IsAuthenticated]
     queryset = Tag.objects.all()
 
+class TagDetailView(generics.RetrieveAPIView):
+    serializer_class = TagSerializer
+    permission_classes = [permissions.IsAuthenticated]
+    queryset = Tag.objects.all()
+
+    def get(self, request, *args, **kwargs):
+        tag = self.get_object()
+        snippets = tag.snippets.filter(created_by=request.user)
+        serializer = SnippetSerializer(snippets, many=True)
+        return Response({
+            "tag": tag.title,
+            "snippets": serializer.data
+        })
+        
+
 
 
     
