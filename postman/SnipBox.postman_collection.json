@@ -1,0 +1,370 @@
+{
+	"info": {
+		"_postman_id": "10b39420-5182-4ba3-8868-b4c8665820f4",
+		"name": "SnipBox",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13963818"
+	},
+	"item": [
+		{
+			"name": "Login API",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"user1\",\n    \"password\": \"admin@123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/token/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"token",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Refresh Token API",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1OTA1NTgxNCwiaWF0IjoxNzU4OTY5NDE0LCJqdGkiOiJhYWJjMzQxYmRiNTY0ODQwYjhjM2YyNTg1ZWVmNDVkMyIsInVzZXJfaWQiOiIxIn0.b8K_4fPPILFlJIN_4IPUpH3-Ym0oFx6DFi_wprNWWNw\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/token/refresh/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"token",
+						"refresh",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create API",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4OTk1NDkwLCJpYXQiOjE3NTg5OTM2OTAsImp0aSI6IjA1NmE4MDVhYjY5NTQ1YWZhOWU0YWRkNWY2MDczNWJiIiwidXNlcl9pZCI6IjMifQ.NDD5rjvUGi3EksnnmimaDjTRCPN3qb9CL0AGmHPWVNY",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"Create Python Django SnipBox\",\n  \"note\": \"This is a note to create snipbox application\",\n  \"tag_titles\": [\"Django\", \"Python\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/snippets/create/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"snippets",
+						"create",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Detail API",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4OTk1NDkwLCJpYXQiOjE3NTg5OTM2OTAsImp0aSI6IjA1NmE4MDVhYjY5NTQ1YWZhOWU0YWRkNWY2MDczNWJiIiwidXNlcl9pZCI6IjMifQ.NDD5rjvUGi3EksnnmimaDjTRCPN3qb9CL0AGmHPWVNY",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/snippets/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"snippets",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Overview API",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4OTg1NzUwLCJpYXQiOjE3NTg5ODM5NTAsImp0aSI6IjQwODc0NmZlZjI2OTRlNzI4YzAxZGUxZGJhYzFhNDg5IiwidXNlcl9pZCI6IjEifQ.k0Qi4nvcGcD8Yi-YP_epDgBwvrWd_sXbUzvbnzawfLM",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/snippets/overview/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"snippets",
+						"overview",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete API",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4OTk3MjQ0LCJpYXQiOjE3NTg5OTU0NDQsImp0aSI6IjMwM2E5NTNjY2I0NzRjNDY4YzQxYzMzMWI4NjUzMDFjIiwidXNlcl9pZCI6IjMifQ.SED0nGP8kQ-w9n6RosSdUdkbuUltwLXuT1xxBZ6F0C4",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/snippets/2/delete/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"snippets",
+						"2",
+						"delete",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update API",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4OTk2ODEwLCJpYXQiOjE3NTg5OTUwMTAsImp0aSI6IjgzOGY5MzY3OTNkZjRmM2I4YjA3MjQ1ZWMzY2U3ODVjIiwidXNlcl9pZCI6IjMifQ.BAB2njf86POjQVW0yXt8ujAqvwjuK2YNhlbDxgSRlhA",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"Updated Create Python Django SnipBox\",\n  \"note\": \"This is a updated note to create snipbox application\",\n  \"tag_titles\": [\"django\", \"update-python\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/snippets/2/update/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"snippets",
+						"2",
+						"update",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TagList API",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4OTg5OTI4LCJpYXQiOjE3NTg5ODgxMjgsImp0aSI6ImUzMjNjYjc5ZThjMDQzMjU4ZTVkYjlhYWNlM2IwZWE5IiwidXNlcl9pZCI6IjEifQ.boRpU8nCxXKEF7Ez-IySPcam0WitZ8y6WOv-XmAL8pc",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/tags/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"tags",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TagDetail API",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4OTkxMTU2LCJpYXQiOjE3NTg5ODkzNTYsImp0aSI6IjcyNDdkYWU3NzY0YTQwYzZiYmU4MGQ2ZDVlMzdlMzk2IiwidXNlcl9pZCI6IjEifQ.5XU5HjgfjjV_jxUjnGGDgUb0QV87MCQXVcsKDZFI828",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/tags/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"tags",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
