@@ -15,6 +15,14 @@ Users can save short notes (snippets), categorize them with tags, and perform CR
 
 ---
 
+## ⚙️ Requirements
+- Python 3.10+
+- Django 4.2+ 
+- djangorestframework 3.16+
+- djangorestframework-simplejwt 5.5+
+
+---
+
 ## 📂 Project Structure
 
 ```
@@ -178,8 +186,9 @@ Curl commands for testing the API endpoints:
   -H "Authorization: Bearer your_jwt_token" \
   -H "Content-Type: application/json"
   ```
-## Postman Collection   
-[📥 Download Postman Collection](./postman/SnipBox.postman_collection.json)
+## 📦 Postman Collection
+Test all APIs with Postman using the included collection.  
+[📥 Download Collection](./postman/SnipBox.postman_collection.json)
 ---
 
 ## 📸 API Results
