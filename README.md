@@ -189,6 +189,17 @@ Curl commands for testing the API endpoints:
 ## 📦 Postman Collection
 Test all APIs with Postman using the included collection.  
 [📥 Download Collection](./postman/SnipBox.postman_collection.json)
+
+---
+##  Docker Setup
+
+Move to the project directory and run the following commands to build and start the Docker containers:
+```bash
+docker-compose build
+```
+```bash
+docker-compose up
+```
 ---
 
 ## 📸 API Results
