@@ -274,9 +274,6 @@
 		},
 		{
 			"name": "TagList API",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
 				"method": "GET",
 				"header": [
@@ -291,15 +288,6 @@
 						"type": "text"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": "",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
 					"raw": "http://127.0.0.1:8000/api/tags/",
 					"protocol": "http",
@@ -321,15 +309,12 @@
 		},
 		{
 			"name": "TagDetail API",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
 				"method": "GET",
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4OTkxMTU2LCJpYXQiOjE3NTg5ODkzNTYsImp0aSI6IjcyNDdkYWU3NzY0YTQwYzZiYmU4MGQ2ZDVlMzdlMzk2IiwidXNlcl9pZCI6IjEifQ.5XU5HjgfjjV_jxUjnGGDgUb0QV87MCQXVcsKDZFI828",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU5MDM5NzgzLCJpYXQiOjE3NTkwMzc5ODMsImp0aSI6IjcxOTE5NjRlZGU3NDQ2ZjU4ZWQ5ZjBiMDEyMWJhNmM2IiwidXNlcl9pZCI6IjEifQ.9H6aUne7HNgo0LhKmenh-By5l7Fnu9CHTmFXdOoIsGc",
 						"type": "text"
 					},
 					{
@@ -338,17 +323,8 @@
 						"type": "text"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": "",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/tags/1",
+					"raw": "http://127.0.0.1:8000/api/tags/django",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -360,7 +336,7 @@
 					"path": [
 						"api",
 						"tags",
-						"1"
+						"django"
 					]
 				}
 			},
