@@ -10,6 +10,6 @@ urlpatterns = [
     path('snippets/<int:pk>/delete/', SnippetDeleteAPI.as_view(), name='snippet-delete'),
     path('snippets/overview/', OverviewAPI.as_view(), name='snippet-overview'),
     path('tags/', TagListView.as_view(), name='list-tags'),
-    path('tags/<int:pk>/', TagDetailView.as_view(), name='tag-detail')
+    path('tags/<str:title>/', TagDetailView.as_view(), name='tag-detail'),
 
 ]

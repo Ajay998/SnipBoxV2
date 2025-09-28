@@ -126,7 +126,7 @@ SnipBoxV2/
 
 - **Tags:**
   - `GET /api/tags/` - List all tags
-  - `GET /api/tags/{id}` - Tag Detail Get snippets linked to the selected tag
+  - `GET /api/tags/{title}` - Tag Detail Get snippets linked to the selected tag title
 
 ---
 ## 🧪 Testing
@@ -182,7 +182,7 @@ Curl commands for testing the API endpoints:
   ```
 - **Get Tag Detail:**
   ```bash
-  curl -X GET http://localhost:8000/api/tags/{id}/ \
+  curl -X GET http://localhost:8000/api/tags/{title}/ \
   -H "Authorization: Bearer your_jwt_token" \
   -H "Content-Type: application/json"
   ```

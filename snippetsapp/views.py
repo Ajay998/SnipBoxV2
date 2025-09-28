@@ -60,6 +60,7 @@ class TagDetailView(generics.RetrieveAPIView):
     serializer_class = TagSerializer
     permission_classes = [permissions.IsAuthenticated]
     queryset = Tag.objects.all()
+    lookup_field = 'title'
 
     def get(self, request, *args, **kwargs):
         tag = self.get_object()
